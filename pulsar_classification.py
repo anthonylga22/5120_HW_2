@@ -6,8 +6,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, accuracy_score
-from sklearn.metrics import recall_score, precision_score
-
 import pickle
 
 # Load dataset
@@ -61,20 +59,13 @@ FN = cm[1,0]
 
 
 # Compute Precision and use the following line to print it
-precision = precision_score(y_test, y_pred)
-print('Precision SKLEARN : {0:0.3f}'.format(precision))
-
 precision = TP / (TP+FP)
 print('Precision : {0:0.3f}'.format(precision))
 
 # Compute Recall and use the following line to print it
-recall = recall_score(y_test, y_pred)
-print('Recall or Sensitivity SKLEARN: {0:0.3f}'.format(recall))
-
 recall = TP / (TP+FN)
 print('Recall or Sensitivity : {0:0.3f}'.format(recall))
 
 # Compute Specificity and use the following line to print it
 specificity = TN / (TN+FP)
 print('Specificity : {0:0.3f}'.format(specificity))
-
